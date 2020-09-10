@@ -1,33 +1,20 @@
 {
-  "name": "orinoco-backend",
+  "name": "p5_bachir_ouacila",
   "version": "1.0.0",
   "description": "This is the back end server for Project 5 of the Junior Web Developer path.",
-  "main": "server.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "bcrypt": "^3.0.8",
-    "body-parser": "^1.18.3",
-    "express": "^4.16.4",
-    "jsonwebtoken": "^8.3.0",
-    "mongoose": "^5.3.8",
-    "mongoose-unique-validator": "^2.0.2",
-    "uuid": "^3.3.2"
+    "start": "ng serve --proxy-config proxy.conf.json"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/OpenClassrooms-Student-Center/JWDP5.git"
+    "url": "git+https://github.com/Ouacila/P5_BACHIR_Ouacila.git"
   },
+  "author": "",
+  "license": "ISC",
   "bugs": {
-    "url": "https://github.com/OpenClassrooms-Student-Center/JWDP5/issues"
+    "url": "https://github.com/Ouacila/P5_BACHIR_Ouacila/issues"
   },
-  "homepage": "https://github.com/OpenClassrooms-Student-Center/JWDP5#readme",
-  "devDependencies": {
-    "webpack": "^4.44.1",
-    "webpack-cli": "^3.3.12"
-  }
+  "homepage": "https://github.com/Ouacila/P5_BACHIR_Ouacila#readme"
 }

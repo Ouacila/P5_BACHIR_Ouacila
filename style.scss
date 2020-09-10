@@ -2,12 +2,6 @@ body{
     margin: 0;
     padding: 0;
 }
-.products
-{
-    width: 80%;
-    justify-content: center;
-    margin: auto;
-}
 /* Navbar */
 .barre{
     position: sticky;
@@ -47,7 +41,7 @@ body{
 }
 .photo-vintage{
     width: 100%;
-    h2{
+    h3{
         font-size: 4rem;
         color:#fff;
         width: 70%;
@@ -64,15 +58,6 @@ body{
     }
 }
 /* Bannière --- END */
-
-/* Images appareils photo */
-.app{
-    height: 350px;
-}
-.Articles1, .Articles2{
-    margin-bottom: 5%;
-}
-/* Images appareil photo --- END */
 
 /* Footer */
 footer{
@@ -102,137 +87,32 @@ footer{
     }
 }
 /* Footer --- END */
-
-/* Appareils photos (corps de la page) */
 .text-center{
     color: black;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: bold;
     padding-top: 2%;
 }
-.fa-shopping-cart{
-        font-size: 1.5rem;
-        position: absolute;
-        width: 100%;
-        padding-top: 2%;
-        height: 70px;
-        background-color: darkgrey;
-        transition: all 0.3s ease-in ;
-        -webkit-transition: all 0.3s ease-in ;
-        -moz-transition: all 0.3s ease-in ;
-        -ms-transition: all 0.3s ease-in ;
-        -o-transition: all 0.3s ease-in ;
-        opacity: 0;
-        cursor: pointer;
-        text-align: center;
-}
-.image{
-        &:hover .cart{
-            opacity: 1;
-            bottom: 160px;
-            width: 100%;
-        }
-}
-h8{
-    font-size: 1.2rem;
-}
-.titre-bouton{
-    font-size: 1.2rem;
-}
-/* Appareils photos (corps de la page) -- END */
-/* --------------------PAGE PANIER-------------------*/
-.titrePagePanier{
-    padding-top: 5%;
-    width: 100%;
-    h3{
+h2{
+    width: 80%;
     text-align: center;
     margin: auto;
-    font-size: 2rem;
-    font-weight: bold;
-    text-decoration: underline;
-    }
-}
-.products-container{
-    padding-top: 5%;
-    width: 90%;
-   justify-content: space-around;
-    margin: 0 auto;
-
-   }
-.product-header{
-    width: 100%;
-    justify-content: flex-start;
-    margin: auto;
-    display: flex;
+    padding-bottom: 2%;
     border-bottom : 5px solid  rgb(233, 144, 144);
 }
-.product-title{
-    width:25%;
-    justify-content: space-around;
+.container{
+   margin-top: 5%;
 }
-.price{
+.card{
+    width: 50%;
     justify-content: center;
-    display: flex;
-    width: 25%;
-}
-.quantity{
-    display: flex;
-    width: 20%;
-    align-items: center;
-    
-}
-.total{
-    width:30%;
-    display: flex;
-}
-.product{
-    padding-top: 2%;
-    padding-bottom: 5%;
-    border-bottom : 2px solid  rgb(233, 144, 144);
-    margin-bottom: 2%;
-    
-}
-.produit{
-    width: 100%;
-    display: inline-flex;
-    padding-top: 5%;
-    padding-bottom: 10%;
-    border-bottom : 2px solid  rgb(233, 144, 144);
-}
-.fa-times-circle , .fa-arrow-circle-right, .fa-arrow-circle-left{
-    font-size: 1rem;
-    color: rgb(233, 144, 144) ;
-    margin-right: 2%;
-    margin-left: 2%;
-}
-.panierTotal{
-    display: flex;
-    justify-content: flex-end;
-    width: 100%;
-}
-.titrePanier{
-    width: 20%;
-    
-}
-.totalPanier{
-    width: 10%;
-}
-/*----------------- Pages produits------------------*/
-.App1{
-    display: flex;
-    width: 90%;
-    justify-content: space-around;
     margin: auto;
-}
-.form-group{
-    display: flex;
-}
-.app{
-    width: 35%;
-}
-fieldset h5{
-    padding-bottom: 5%;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: 30px;
-    font-weight: bold;;
+    border:none;
+    .card-title{
+        font-size: 30px;
+        align-items: center;
+        margin:auto;
+        padding-top: 2%;
+        padding-bottom: 2%;
+    }
 }
