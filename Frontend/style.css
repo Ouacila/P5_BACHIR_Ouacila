@@ -1,0 +1,173 @@
+@charset "UTF-8";
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Navbar */
+.barre {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: grey;
+  /* à voir pour le changement de couler du fond de la navbar*/
+}
+
+.fa-cart-plus {
+  position: absolute;
+  right: 0;
+  top: 10%;
+  color: #e99090;
+  font-size: 2.5rem;
+}
+
+.fa-cart-plus:hover {
+  color: darkmagenta;
+}
+
+.fa-cart-plus .num {
+  font-size: 1rem;
+}
+
+/* Navbar --- END */
+/* Bannière */
+.banniere {
+  width: 100%;
+  margin-top: 5%;
+  padding-bottom: 15%;
+  background-image: url(../BackEnd/images/banniere.jpg);
+  background-repeat: no-repeat;
+}
+
+.photo-vintage {
+  width: 100%;
+}
+
+.photo-vintage h3 {
+  font-size: 4rem;
+  color: #fff;
+  width: 70%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: auto;
+}
+
+.photo-vintage p {
+  font-size: 1.7rem;
+  color: #fff;
+  width: 40%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: auto;
+}
+
+/* Bannière --- END */
+/* Footer */
+footer {
+  background-color: grey;
+  margin-top: 5%;
+}
+
+.fa-arrow-alt-circle-up {
+  font-size: 3rem;
+  color: #e99090;
+  position: fixed;
+  bottom: 2%;
+  right: 2%;
+}
+
+.list-inline-item {
+  font-size: 1.5rem;
+}
+
+.list-inline-item a {
+  color: #e99090;
+}
+
+.social {
+  font-size: 2rem;
+  margin-left: 2%;
+  color: #e99090;
+}
+
+.social:hover {
+  cursor: pointer;
+  color: indigo;
+}
+
+/* Footer --- END */
+.text-center {
+  color: black;
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding-top: 2%;
+}
+
+h2 {
+  width: 80%;
+  text-align: center;
+  margin: auto;
+  padding-bottom: 2%;
+  border-bottom: 5px solid #e99090;
+}
+
+.container {
+  margin-top: 5%;
+}
+
+.card {
+  width: 50%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: auto;
+  border: none;
+}
+
+.card .card-title {
+  font-size: 30px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: auto;
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+.buttonAjouter, #ajoutPanier {
+  border: 3px black solid;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  color: black;
+  padding: 1rem 1rem;
+  margin-bottom: 10px;
+  background-color: #e99090;
+}
+
+.buttonAjouter:hover, #ajoutPanier:hover {
+  background-color: darkmagenta;
+  color: white;
+}
+
+#produit {
+  width: 60%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: auto;
+}
+
+#produit .app {
+  width: 100%;
+}
+
+#produit a {
+  color: black;
+}
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <script src="https://kit.fontawesome.com/5c432e63cf.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="style.css" />
+        <link rel="shortcut icon" type="image/png" href="images/logo.png">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+        <script defer src="shop.js"></script>
+        <script defer src="panier.js"></script>
+        <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+        <title>Mon panier</title>
+    </head>
+
+    <body>
+        <!--navbar-->
+        <header class="barre" id="header">
+            <div class="bg-dark">
+                <div class="container">
+                    <div class="row">
+                        <nav class="col navbar navbar-expand-lg navbar-dark">
+                            <a class="navbar-brand" href="../index.html">
+                            <h1>
+                                <img src="../BackEnd/images/logo.png" width="120" height="70" alt="Info Logo" />
+                                Orinoco
+                            </h1>
+                            </a>
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                              </button>
+                            <div id="navbar" class="navbar-collapse collapse">
+                                <ul class="nav navbar-nav">
+                                    <li class="nav-item active">
+                                    <a class="nav-link" href="../index.html">Accueil</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="shop.html">Shop</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="panier.html">Mon panier</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="contact.html">Contactez-nous</a>
+                                    </li>
+                                </ul>
+                                <a class="nav-icon" href="panier.html">
+                                    <i class="fas fa-cart-plus">
+                                        <span class="num">0
+                                        </span>
+                                    </i>
+                                </a>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!--navbar end-->
+        
+        <section>
+            <table id="cartView">
+    
+            </table>
+    
+        </section>
+    
+    
+        <section id="form">
+    
+            <form action="thanks.html" method="POST">
+                <label for="firstName">Prénom</label>
+                <input type="text" id="firstName" name="userFirstName" required><br>
+                <label for="lastName">Nom</label>
+                <input type="text" id="lastName" name="userLastName" required><br>
+                <label for="address">Adresse</label>
+                <input type="text" id="address" name="userAddress" required><br>
+                <label for="city">Ville</label>
+                <input type="text" id="city" name="userCity" required><br>
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="userEmail" required><br>
+                <button type="submit" id="submitButton">Envoyer</button>
+            </form>
+    
+        </section>
+        
+                <!--Button back to top-->
+                <a href= "#header">
+                    <i class="fas fa-arrow-alt-circle-up">
+                    </i>
+                </a>
+                <!--Button back to top end-->
+        
+                <!--Pied de page-->
+                <footer>
+                    <div class="container bloc-sm">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <p class="text-center">
+                                    Orinoco, vente d'appareils photos vintage.
+                                    <br/>             
+                                </p>
+                                    <div class="row">
+                                        <!--Réseaux sociaux-->
+                                        <div class="col-sm-12">
+                                            <div class="text-center">
+                                                <a class="social" href="index.html">
+                                                    <span class="fa fa-twitter icon-md">
+                                                    </span>
+                                                </a>
+                                                <a class="social" href="index.html">
+                                                    <span class="fa fa-facebook icon-md">
+                                                    </span>
+                                                </a>
+                                                <a class="social" href="index.html">
+                                                    <span class="fab fa-pinterest">								
+                                                    </span>
+                                                </a>
+                                                <a class="social" href="index.html">
+                                                    <span class="fa fa-instagram icon-md">
+                                                    </span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <!--Réseaux sociaux end-->
+                                    </div>
+                                    <br/>
+                                <div class="row">
+                                    <!--Liens différentes pages-->
+                                    <div class="col-sm-12">
+                                        <ul>
+                                            <li class="list-inline-item">
+                                                <a href="mentions.html">Mentions légales
+                                                </a>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <a href="conditions.html">Conditions de vente
+                                                </a>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <a href="protect.html">Protection de votre vie privée
+                                                </a>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <a href="info.html">Infos cookies
+                                                </a>
+                                            </li>
+                                            
+                                            <li class="list-inline-item">
+                                                <a href="contact.html">Contactez-nous
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!--Liens end-->
+                                </div>
+                            </div>    
+                        </div>
+                    </div>
+                </footer>
+                <!--Pied de page end-->
+            </body>
+        </html>
