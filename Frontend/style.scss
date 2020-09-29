@@ -8,9 +8,8 @@ body{
     top: 0;
     z-index: 1;
     background-color:grey; 
-    /* à voir pour le changement de couler du fond de la navbar*/
+    /* à voir pour le changement de couleur du fond de la navbar*/
 }
-
 .fa-cart-plus{
     position: absolute;
     right: 0;
@@ -141,3 +140,63 @@ a{
 
 }
 }
+
+.appImg{
+    width: 300px;
+    height: 200px;
+}
+table{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+    width: 90%;
+    tr{
+        border-bottom: 2px solid rgb(233, 144, 144);
+        padding-top: 20px;
+    }
+
+}
+#form{
+    width: 90%;
+    justify-content: center;
+    margin: auto;
+    display: flex;
+    .valid{
+        width: 60%;
+        margin: 0.5em auto;
+        padding: 1em;
+        border: 2px solid rgb(233, 144, 144);
+        border-radius: 1em;
+        label{
+            display: inline-block;
+            width: 100px;
+            text-align: center;
+            margin: auto;
+        }
+        input{
+            font: 1em sans-serif;
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid rgb(233, 144, 144);
+        }
+    }
+    .retour{
+        height: 40%;
+        vertical-align: middle;
+        margin: auto;
+        border: 3px black solid;
+        border-radius: 8px;
+        -webkit-border-radius: 8px;
+        -moz-border-radius: 8px;
+        -ms-border-radius: 8px;
+        -o-border-radius: 8px;
+        color: black;
+        padding: 1rem 1rem;
+        margin-bottom: 10px;
+        background-color:rgb(233, 144, 144);
+        &:hover{
+        background-color: darkmagenta;
+        color: white;
+    }
+}
+    }

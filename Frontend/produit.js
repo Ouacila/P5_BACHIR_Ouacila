@@ -2,8 +2,6 @@
 /* -------------  Connexion API pour chaque id produit ----------- */
 function XMLRequest(url) {
     const request = new XMLHttpRequest();
-    const pageLocation = window.location;
-    const uri = new URL(pageLocation);
 
     request.onreadystatechange = function () {
         if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
@@ -14,12 +12,14 @@ function XMLRequest(url) {
     request.open('GET', url);
     request.send();
 };
+
 const product = document.querySelector('#produit');
 const section = document.getElementsByTagName('section');
 
 const idUrl = new URL(window.location).searchParams.get('id');
 const url = 'http://localhost:3000/api/cameras/' + idUrl 
 XMLRequest(url); 
+
 
 /* ----------------- Affichage produit -------------*/
 
@@ -40,106 +40,48 @@ function renderHTML(cart) {
 
     const form = document.getElementById('lenses');
 
-    lenses.forEach(displayColor); // 
+    lenses.forEach(displayLense); // 
 
-    function displayColor(item) { 
+    function displayLense(item) { 
         document.getElementById("lenses").innerHTML += `<option>${item}</option>`;// formulaire de choix des lentilles
     };
 
     div.appendChild(document.getElementById('ajoutPanier')); // Récupération sur la page HTML.
     div.appendChild(form);
 };
-/*----------- Nombre d'article dans le panier (essai) ----------*/
 
-function cartNumbers(produit){
-    
-    let productNumbers = localStorage.getItem('cartNumbers');
+/* --------- Localstorage---------------- */
 
-    productNumbers=parseInt(productNumbers); /* Conversion d'un string en number*/
-    localStorage.setItem('cartNumbers' , 1) ;
+/* Fonction pour avoir le nbr d'article*/
+function onLoadCartNumber()  {   
+    const quantityInCart = JSON.parse(localStorage.getItem('product')).length;  // longueur du tableau crée auto dans le panier
 
-    if (productNumbers){
-        localStorage.setItem ('cartNumbers',productNumbers +1);
-        document.querySelector('.fa-cart-plus span').textContent=productNumbers+1;
+};
+
+document.getElementById('ajoutPanier').addEventListener('click', ()=>{
+    const lenses = document.getElementById('lenses'); //choix de la lentille renvoyée à l'API
+
+    let app = { //obj App pour la création panier (+localStorage)
+        id: response._id,
+        name: response.name,
+        choix:  lenses.value, //pour récupérer seulement la lentille choisie
+        price: response.price,
+        image: response.imageUrl
     }
-    else{
-        localStorage.setItem('cartNumbers',1);
-        document.querySelector('.fa-cart-plus span').textContent=1;
+
+    const itemAdd = localStorage.getItem('product');
+
+    if (itemAdd) { //vérifie l'existence d'un panier, sinon le crée
+        itemInCart = JSON.parse(itemAdd); //Transforme l'e- JSON en JS
+        itemInCart.push(app); //ajout de l'app séléctionné 
+        localStorage.setItem('product', JSON.stringify(itemInCart));
+    } else {
+        itemInCart = []; //si inexistant, crée un panier sous forme de tableau (format attendu par l'API)
+        itemInCart.push(app); //ajout de l'app séléctionné 
+        localStorage.setItem('product', JSON.stringify(itemInCart)); //envoie les données obtenues dans le localStorage
     }
-    setItems(produit);
-}
-/* Fonction pour avoir le chiffre d'articles dans le panier*/
-function onLoadCartNumbers(){
-let productNumbers=localStorage.getItem('cartNumbers');
-if(productNumbers){
-    document.querySelector('.fa-cart-plus span').textContent=productNumbers;
-}
-}
-/* Nombre d'article affiché à côté de l'icône panier*/
-function cartNumbers(produit){
 
-let productNumbers = localStorage.getItem('cartNumbers');
+    onLoadCartNumber();
 
-productNumbers=parseInt(productNumbers); /* Conversion d'un string en number*/
-localStorage.setItem('cartNumbers' , 1) ;
-
-if (productNumbers){
-    localStorage.setItem ('cartNumbers',productNumbers +1);
-    document.querySelector('.fa-cart-plus span').textContent=productNumbers+1;
-}
-else{
-    localStorage.setItem('cartNumbers',1);
-    document.querySelector('.fa-cart-plus span').textContent=1;
-}
-setItems(produit);
-}
-
-
-
-function setItems(produit){
-/* console.log("Dans cette fonction");
-console.log("Mon produit est",product); */
-
-let cartItems = localStorage.getItem('productsInCart');
-cartItems = JSON.parse(cartItems);/* Transforme un e- JSON en JS */
-
-if(cartItems!=null){
-    if(cartItems[produit.tag]==undefined){
-        cartItems={
-            ...cartItems,
-            [produit.tag]:product
-        }
-    }
-    cartItems[product.tag].inCart+=1;
-}
-else{
-product.inCart=1;
-cartItems={
-    [product.tag]:product
-    }
-}
-localStorage.setItem("productsInCart",JSON.stringify (cartItems)
-);
-}
-/* Fonction pour calculer le prix total du panier*/
-
-function prixTotal(product){
-    let cartCost = localStorage.getItem("prixTotal");
-    
-    if(cartCost !=null) {
-        cartCost = parseInt(cartCost);
-        localStorage.setItem("prixTotal",cartCost + product.price);
-    }
-    else{
-       localStorage.setItem("prixTotal" , product.price); 
-    }
-}
-function displayCart(){
-   
-    let cartItems=localStorage.getItem("productsInCart");
-    cartItems=JSON.parse(cartItems);
-    let productContainer=document.querySelector(".product");
-    let cartCost = localStorage.getItem("prixTotal");
-
-    console.log(cartItems);
-}
+    location.reload();
+});
