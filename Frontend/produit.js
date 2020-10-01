@@ -33,7 +33,8 @@ function renderHTML(cart) {
     <h1 class="name">${cart.name}</h1>
     <p class="description">${cart.description}</p>
     <p class ="prix">${cart.price / 100} €</p>
-    <select id="lenses"></select>`;
+    <select id="lenses"></select>
+    <label class="col-lg-3" >Quantité</label><input type = "number" id = "qte" style="width:120px" class="input-sm form-control"></input><br>`;
     product.appendChild(div); 
 
     //Choix des lentilles
@@ -43,7 +44,7 @@ function renderHTML(cart) {
     lenses.forEach(displayLense); // 
 
     function displayLense(item) { 
-        document.getElementById("lenses").innerHTML += `<option>${item}</option>`;// formulaire de choix des lentilles
+        document.getElementById("lenses").innerHTML += `<option>${item}</option>`; // formulaire de choix des lentilles
     };
 
     div.appendChild(document.getElementById('ajoutPanier')); // Récupération sur la page HTML.
@@ -55,7 +56,6 @@ function renderHTML(cart) {
 /* Fonction pour avoir le nbr d'article*/
 function onLoadCartNumber()  {   
     const quantityInCart = JSON.parse(localStorage.getItem('product')).length;  // longueur du tableau crée auto dans le panier
-
 };
 
 document.getElementById('ajoutPanier').addEventListener('click', ()=>{
@@ -66,6 +66,7 @@ document.getElementById('ajoutPanier').addEventListener('click', ()=>{
         name: response.name,
         choix:  lenses.value, //pour récupérer seulement la lentille choisie
         price: response.price,
+        qte:parseInt(document.getElementById("qte").value),
         image: response.imageUrl
     }
 
@@ -83,5 +84,5 @@ document.getElementById('ajoutPanier').addEventListener('click', ()=>{
 
     onLoadCartNumber();
 
-    location.reload();
 });
+

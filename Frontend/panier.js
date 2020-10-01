@@ -1,4 +1,6 @@
 
+
+
 let httpRequest=new XMLHttpRequest();
 httpRequest.onreadystatechange=function(){
     if( httpRequest.readyState === 4)/* Permet de détecter l'évolution de la requête */
@@ -32,11 +34,10 @@ const insertPost = async function (data) {  // fonction pour envoyer les donnée
 
 }
 
-/* ------------------------- Cart Icon Display ------------------------- */
+/*----------------------------------------------------------------------------------*/
 
 onLoadCartNumber(); // appelle la fonction créee dans produit.js
 
-/* ------------------------- Cart Icon Display ------------------------- */
 
 document.getElementById('submitButton').addEventListener('click', () => {    // fonction envoyant les données à l'API
     const firstName = document.getElementById('firstName').value;
@@ -69,7 +70,7 @@ document.getElementById('submitButton').addEventListener('click', () => {    // 
     
 });
 
-/* ------------------------- Display Cart Content ------------------------- */
+/* -------- Contenu du panier -------------- */
 
 const cartView = document.getElementById('recPanier');   // table html pour le contenu du panier
 
@@ -80,34 +81,41 @@ function renderCart(data) {
     const tfoot = document.createElement('tfoot');
     tfoot.setAttribute('id', 'total');
 
-    table.innerHTML += "<tr><th>Mes articles</th><th>Quantité</th><th>Appareil photo</th><th>Lentilles</th><th>Prix</th></tr>"; // En tête du tableau
-
+    table.innerHTML += "<tr><th>Mes articles</th><th>Appareil</th><th>Lentilles</th><th>Qté</th><th>Prix u.</th></tr>"; // En tête du tableau
+    
     for (let i in app) {  // chaque article affiché par ligne
         const row = document.createElement('tr');
+        
+        let amount=(app[i].qte) * (app[i].price / 100);
+        console.log ("Le total de la ligne est:", amount, "Euros")
+        
         row.innerHTML += `<td>
         <img class="appImg" src="${app[i].image}">
         </td>
-        <td>${app[i].quantite}</td>
         <td>${app[i].name}</td>
         <td>${app[i].choix}</td>
+        <td>${app[i].qte}</td>
         <td>${app[i].price / 100} €</td>`
-        table.appendChild(row);
+        //<td> amount</td>`
+        
+    table.appendChild(row);    
+
+    
     }
 
     cartView.appendChild(table);    // Footer du tableau
     tfoot.innerHTML += `<tr>
     <td>Total</td>
-    <td>${app.price} €</td>
+    <td> ${app.price}€</td>
     </tr>`;
 
     table.appendChild(tfoot);
-
 
     var table = document.getElementById('table'), prixTotal = 0;
 
     for (i = 1; i < table.rows.length; i++) {   // calcul Total du panier
         prixTotal = prixTotal + parseInt(table.rows[i].cells[4].innerHTML);
-    }
+        }//
 
     var prixTotal = document.getElementById('total').innerHTML = `Total = ${prixTotal} €`;
 

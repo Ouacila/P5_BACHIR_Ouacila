@@ -26,7 +26,7 @@ function renderHTML(cart) { //fonction de création du contenu HTML
         <h5 class="card-title"> ${cart[i].name}</h5>
         <p class="card-text">${cart[i].description}<br \> ${cart[i].price / 100}  €</p>
         <p class="btn" type="button">
-        <a class="buttonAjouter" href="Frontend/produit.html?id=${cart[i]._id}"> Sélectionnez cet appareil photo! </a>
+        <a class="buttonAjouter" href="Frontend/produit.html?id=${cart[i]._id}"> Sélectionner cet appareil ! </a>
         </p>
         </div>`;
     }
