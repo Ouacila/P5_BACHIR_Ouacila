@@ -89,6 +89,7 @@ footer{
     padding-top: 2%;
 }
 h2{
+    font-family: 'Sansita Swashed', cursive;
     width: 80%;
     text-align: center;
     margin: auto;
@@ -161,6 +162,10 @@ table{
     justify-content: center;
     margin: auto;
     display: flex;
+    h4{
+        font-family: 'Sansita Swashed', cursive;
+        text-decoration: underline;
+    }
     .valid{
         width: 60%;
         margin: 0.5em auto;
@@ -215,6 +220,15 @@ table{
     right: 30%;
     margin-top: -5%;
 }
+
+#recapPanier{
+    text-align: center;
+    margin: auto;
+    h1, p{
+        font-family: 'Sansita Swashed', cursive;
+    }
+}
+
 /* Affichage site Grands ecrans 4K*/
 @media all and (min-width:1500px) and (max-width:2300px){
     .banniere{

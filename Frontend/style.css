@@ -107,6 +107,7 @@ footer {
 }
 
 h2 {
+  font-family: 'Sansita Swashed', cursive;
   width: 80%;
   text-align: center;
   margin: auto;
@@ -199,6 +200,11 @@ table tr {
   display: flex;
 }
 
+#form h4 {
+  font-family: 'Sansita Swashed', cursive;
+  text-decoration: underline;
+}
+
 #form .valid {
   width: 60%;
   margin: 0.5em auto;
@@ -257,6 +263,15 @@ table tr {
   position: absolute;
   right: 30%;
   margin-top: -5%;
+}
+
+#recapPanier {
+  text-align: center;
+  margin: auto;
+}
+
+#recapPanier h1, #recapPanier p {
+  font-family: 'Sansita Swashed', cursive;
 }
 
 /* Affichage site Grands ecrans 4K*/

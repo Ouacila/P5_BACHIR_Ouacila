@@ -22,13 +22,13 @@ httpRequest.send();
 /* ------------------------- POST Method ------------------------- */
 
 const insertPost = async function (data) {  // fonction pour envoyer les données (utilisateur et tableau de produits) à l'API pour effectuer une commande
-    let response = await fetch('https://oc-p5-api.herokuapp.com/api/cameras/order', { //fetch pour tester les promesses intégrées à cette méthode
-        method: 'POST', // méthode POST puisqu'il s'agit d'un envoi
+var request = new XMLHttpRequest();
+        method: 'POST' // méthode POST puisqu'il s'agit d'un envoi
         headers: {
-            'Content-Type': 'application/json'  // précision sur le format des données à envoyer
-        },
+            'Content-Type', 'application/json'  // précision sur le format des données à envoyer
+        }
         body: JSON.stringify(data) // stringify pour pouvoir exploiter les données obtenues/envoyées
-    })
+    
     let repJson = await response.json();    //la réponse en elle-même
     return repJson;
 
@@ -59,10 +59,7 @@ document.getElementById('submitButton').addEventListener('click', () => {    // 
     const order = { contact, products,total };    // données attendues par l'API pour un 'POST' à ../../order
 
 
-    insertPost({ "contact": contact, "products": products,"total":total }).then(function (response) {
-
-        window.location.href = './recap.html?random=' + response.random;
-    });
+    
 
     const myJSON = JSON.stringify(contact);
     localStorage.setItem('contactData', myJSON);    // localStorage du contact pour le recapitulatif
@@ -86,8 +83,6 @@ function renderCart(data) {
     for (let i in app) {  // chaque article affiché par ligne
         const row = document.createElement('tr');
         
-        let amount=(app[i].qte) * (app[i].price / 100);
-        console.log ("Le total de la ligne est:", amount, "Euros")
         
         row.innerHTML += `<td>
         <img class="appImg" src="${app[i].image}">
@@ -95,13 +90,14 @@ function renderCart(data) {
         <td>${app[i].name}</td>
         <td>${app[i].choix}</td>
         <td>${app[i].qte}</td>
-        <td>${app[i].price / 100} €</td>`
-        //<td> amount</td>`
+        <td>${app[i].price / 100}€</td>`
         
     table.appendChild(row);    
 
     
     }
+    
+    
 
     cartView.appendChild(table);    // Footer du tableau
     tfoot.innerHTML += `<tr>
@@ -114,9 +110,11 @@ function renderCart(data) {
     var table = document.getElementById('table'), prixTotal = 0;
 
     for (i = 1; i < table.rows.length; i++) {   // calcul Total du panier
-        prixTotal = prixTotal + parseInt(table.rows[i].cells[4].innerHTML);
-        }//
-
+        prixTotal = prixTotal + (parseInt(table.rows[i].cells[3].innerHTML) * (parseInt(table.rows[i].cells[4].innerHTML))
+        )}
+    
+        
+        
     var prixTotal = document.getElementById('total').innerHTML = `Total = ${prixTotal} €`;
 
     const tot = JSON.stringify(prixTotal);
