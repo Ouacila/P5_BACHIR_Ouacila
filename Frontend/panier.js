@@ -3,40 +3,33 @@
 
 let httpRequest=new XMLHttpRequest();
 httpRequest.onreadystatechange=function(){
-    if( httpRequest.readyState === 4)/* Permet de détecter l'évolution de la requête */
-    {
-        let results =JSON.parse( httpRequest.responseText )
-        result.innerHTML=''
-        let ul=document.createElement('ul')
-        result.appendChild(ul)
-        for (let i=0; i<results.length; i++){
-            let li=document.createElement('li')
-            li.innerHTML=results[i].name + ' '+ results[i].price + ' Euros' + '  '+ results[i]._id;
-            ul.appendChild(li);
-        }
+    if (this.readyState == XMLHttpRequest.DONE && this.status == 200) /* Permet de détecter l'évolution de la requête */
+    {response = JSON.parse(this.responseText);
+        renderHTML(response);
     }
 }
-httpRequest.open('Get', 'https://oc-p5-api.herokuapp.com/api/cameras', true);
+httpRequest.open('Get', 'https://oc-p5-api.herokuapp.com/api/cameras');
 httpRequest.send();
 
 /* ------------------------- POST Method ------------------------- */
 
-const insertPost = async function (data) {  // fonction pour envoyer les données (utilisateur et tableau de produits) à l'API pour effectuer une commande
-var request = new XMLHttpRequest();
-        method: 'POST' // méthode POST puisqu'il s'agit d'un envoi
-        headers: {
-            'Content-Type', 'application/json'  // précision sur le format des données à envoyer
-        }
-        body: JSON.stringify(data) // stringify pour pouvoir exploiter les données obtenues/envoyées
-    
-    let repJson = await response.json();    //la réponse en elle-même
-    return repJson;
+const insertPost = async function () {  // fonction pour envoyer les données (tableau de produits) à l'API pour effectuer une commande
 
+var request = new XMLHttpRequest();
+request.open("POST", "https://oc-p5-api.herokuapp.com/api/cameras");
+request.setRequestHeader("Content-Type", "application/json");
+request.send(JSON.stringify(json))
+
+let reponse = await response.json();    //réponse promise
+    return reponse;
 }
+
 
 /*----------------------------------------------------------------------------------*/
 
-onLoadCartNumber(); // appelle la fonction créee dans produit.js
+function onLoadCartNumber()  {   
+    const quantityInCart = JSON.parse(localStorage.getItem('product')).length;  // longueur du tableau crée auto
+};
 
 
 document.getElementById('submitButton').addEventListener('click', () => {    // fonction envoyant les données à l'API
@@ -56,13 +49,7 @@ document.getElementById('submitButton').addEventListener('click', () => {    // 
     }
 
     const contact = { "firstName": firstName, "lastName": lastName, "address": address, "city": city, "email": email };
-    const order = { contact, products,total };    // données attendues par l'API pour un 'POST' à ../../order
-
-
-    
-
-    const myJSON = JSON.stringify(contact);
-    localStorage.setItem('contactData', myJSON);    // localStorage du contact pour le recapitulatif
+    const order = { contact, products,total };    // données attendues par l'API pour un 'POST'
 
     
 });
@@ -71,7 +58,7 @@ document.getElementById('submitButton').addEventListener('click', () => {    // 
 
 const cartView = document.getElementById('recPanier');   // table html pour le contenu du panier
 
-function renderCart(data) { 
+function productInCart(data) { 
     const app = JSON.parse(localStorage.getItem('product'));  // Récupération des e- du localStorage pour le panier
     var table = document.createElement('tbody');
     table.setAttribute('id', 'table');
@@ -93,12 +80,8 @@ function renderCart(data) {
         <td>${app[i].price / 100}€</td>`
         
     table.appendChild(row);    
-
-    
     }
     
-    
-
     cartView.appendChild(table);    // Footer du tableau
     tfoot.innerHTML += `<tr>
     <td>Total</td>
@@ -121,7 +104,7 @@ function renderCart(data) {
     localStorage.setItem('total', tot);    // localStorage du Total pour le recapitulatif
 }
 
-renderCart();
+productInCart();
 
 
 

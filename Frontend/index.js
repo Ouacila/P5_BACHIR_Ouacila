@@ -1,6 +1,6 @@
 /* ------------ Appel API ---------------*/
 function XMLRequest(url) {
-    const request = new XMLHttpRequest();
+    const request = new XMLHttpRequest(); // Création nouvel objet de type  XMLHttpRequest
 
     request.onreadystatechange = function () {
         if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
@@ -8,8 +8,8 @@ function XMLRequest(url) {
             renderHTML(response);
         };
     };
-    request.open('GET', url);
-    request.send();
+    request.open('GET', url); //demande à ouvrir une connexion vers un service web.(url ci-dessous)
+    request.send(); // envoi de la requête au service web.
 };
 const url = 'http://localhost:3000/api/cameras/';
 XMLRequest(url); // appelle la fonction de connexion à l'api
